@@ -1,0 +1,335 @@
+:root {
+  --ink: #1b1711;
+  --paper: #f2ead8;
+  --vellum: rgba(255, 249, 233, 0.82);
+  --gold: #d2a23d;
+  --copper: #a65431;
+  --moss: #3e6a4b;
+  --teal: #28616b;
+  --wine: #64283b;
+  --shadow: 0 28px 70px rgba(30, 20, 11, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Nunito Sans", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(210, 162, 61, 0.28), transparent 26rem),
+    radial-gradient(circle at 83% 18%, rgba(40, 97, 107, 0.2), transparent 24rem),
+    linear-gradient(135deg, #21180f 0%, #5e3b24 38%, #c5974a 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255, 244, 215, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 244, 215, 0.1) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+a {
+  color: inherit;
+}
+
+.mana-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mana-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 246, 218, 0.28);
+  border-radius: 50%;
+  animation: drift 18s linear infinite;
+}
+
+.orbit-one {
+  width: 38rem;
+  height: 38rem;
+  top: -15rem;
+  right: -11rem;
+}
+
+.orbit-two {
+  width: 28rem;
+  height: 28rem;
+  bottom: -12rem;
+  left: -8rem;
+  animation-duration: 22s;
+}
+
+.orbit-three {
+  width: 18rem;
+  height: 18rem;
+  right: 16%;
+  bottom: 15%;
+  animation-duration: 28s;
+}
+
+.sigil {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 2px solid rgba(255, 244, 217, 0.55);
+  border-radius: 50%;
+  color: rgba(255, 248, 228, 0.88);
+  font-family: "Almendra", serif;
+  font-size: 2rem;
+  box-shadow: inset 0 0 24px rgba(255, 241, 199, 0.18);
+}
+
+.sigil-plains { top: 13%; left: 7%; }
+.sigil-island { top: 25%; right: 10%; }
+.sigil-swamp { bottom: 23%; left: 11%; }
+.sigil-mountain { bottom: 12%; right: 17%; }
+.sigil-forest { top: 56%; right: 34%; }
+
+.shell {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 28px;
+  align-items: end;
+  min-height: 45vh;
+  color: #fff6df;
+}
+
+.eyebrow,
+.card-label,
+.panel-kicker {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Almendra", Georgia, serif;
+  line-height: 0.95;
+}
+
+h1 {
+  max-width: 760px;
+  font-size: clamp(4rem, 12vw, 9.8rem);
+  text-transform: lowercase;
+  text-shadow: 0 12px 32px rgba(19, 10, 6, 0.45);
+}
+
+.lede {
+  max-width: 620px;
+  margin: 24px 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.34rem);
+  line-height: 1.55;
+  color: rgba(255, 248, 228, 0.86);
+}
+
+.hero-panel,
+.quick-tools {
+  border: 1px solid rgba(255, 244, 217, 0.48);
+  border-radius: 8px;
+  background: rgba(42, 27, 17, 0.52);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero-panel {
+  padding: 24px;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #24170e;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.hero-panel p {
+  margin: 18px 0 0;
+  color: rgba(255, 248, 228, 0.78);
+  line-height: 1.55;
+}
+
+.shortcut-board {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  grid-auto-rows: minmax(230px, auto);
+  gap: 18px;
+  margin: 42px 0 18px;
+}
+
+.shortcut-card {
+  position: relative;
+  min-height: 230px;
+  padding: 24px;
+  border: 1px solid rgba(60, 43, 26, 0.18);
+  border-radius: 8px;
+  background: var(--vellum);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.shortcut-card::after {
+  position: absolute;
+  right: -28px;
+  bottom: -34px;
+  width: 128px;
+  height: 128px;
+  border: 1px solid rgba(27, 23, 17, 0.18);
+  border-radius: 50%;
+  content: "";
+}
+
+.shortcut-card:hover {
+  transform: translateY(-5px) rotate(-0.4deg);
+  box-shadow: 0 34px 86px rgba(30, 20, 11, 0.34);
+}
+
+.shortcut-card.primary {
+  grid-row: span 2;
+  background: linear-gradient(160deg, rgba(255, 248, 229, 0.92), rgba(219, 178, 92, 0.88));
+}
+
+.shortcut-card.tall {
+  grid-row: span 2;
+  background: linear-gradient(160deg, rgba(237, 244, 228, 0.9), rgba(94, 129, 85, 0.78));
+}
+
+.shortcut-key {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff4d6;
+  font-weight: 900;
+}
+
+.shortcut-card h2 {
+  max-width: 12ch;
+  margin-top: 30px;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.shortcut-card p:not(.card-label) {
+  max-width: 28ch;
+  margin: 16px 0 28px;
+  line-height: 1.5;
+}
+
+.shortcut-card a {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid rgba(27, 23, 17, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.32);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.quick-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding: 22px;
+  color: #fff6df;
+}
+
+.quick-tools h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.copy-button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 20px;
+  background: #fff1c4;
+  color: var(--ink);
+  cursor: pointer;
+  font: 900 1rem "Nunito Sans", sans-serif;
+}
+
+.copy-button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #fff3bf;
+  outline-offset: 4px;
+}
+
+@keyframes drift {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .shortcut-board {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 28px;
+  }
+
+  .shortcut-card.primary,
+  .shortcut-card.tall {
+    grid-row: auto;
+  }
+
+  .quick-tools {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sigil {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

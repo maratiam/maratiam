@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Fast Magic: The Gathering shortcuts for the Moxfield profile maratiam."
+    />
+    <title>Maratiam Spellbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almendra:wght@700&family=Nunito+Sans:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="mana-field" aria-hidden="true">
+      <span class="mana-orbit orbit-one"></span>
+      <span class="mana-orbit orbit-two"></span>
+      <span class="mana-orbit orbit-three"></span>
+      <span class="sigil sigil-plains">W</span>
+      <span class="sigil sigil-island">U</span>
+      <span class="sigil sigil-swamp">B</span>
+      <span class="sigil sigil-mountain">R</span>
+      <span class="sigil sigil-forest">G</span>
+    </div>
+
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Moxfield command zone</p>
+          <h1 id="page-title">maratiam spellbook</h1>
+          <p class="lede">
+            A fast, table-ready launchpad for profile checks, deck browsing,
+            searches, collection tools, and the links that matter before a game
+            starts.
+          </p>
+        </div>
+        <div class="hero-panel" aria-label="Primary shortcut">
+          <span class="panel-kicker">Featured portal</span>
+          <a class="profile-link" href="https://moxfield.com/users/maratiam">
+            Open Moxfield Profile
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p>
+            Jump straight to the public maratiam hub, then use the shortcuts
+            below for common Moxfield routes.
+          </p>
+        </div>
+      </section>
+
+      <section class="shortcut-board" aria-label="Favorite shortcuts">
+        <article class="shortcut-card primary">
+          <span class="shortcut-key">1</span>
+          <p class="card-label">Profile</p>
+          <h2>maratiam home</h2>
+          <p>Public profile, activity, and user-level navigation.</p>
+          <a href="https://moxfield.com/users/maratiam">Go to profile</a>
+        </article>
+
+        <article class="shortcut-card">
+          <span class="shortcut-key">2</span>
+          <p class="card-label">Decks</p>
+          <h2>Public deck search</h2>
+          <p>Open Moxfield search filtered to decks by maratiam.</p>
+          <a href="https://moxfield.com/decks/public/advanced?authorUserName=maratiam">
+            Browse decks
+          </a>
+        </article>
+
+        <article class="shortcut-card">
+          <span class="shortcut-key">3</span>
+          <p class="card-label">Commander</p>
+          <h2>Commander builds</h2>
+          <p>Start at public deck search with Commander as the format target.</p>
+          <a
+            href="https://moxfield.com/decks/public/advanced?authorUserName=maratiam&format=commander"
+          >
+            Commander view
+          </a>
+        </article>
+
+        <article class="shortcut-card tall">
+          <span class="shortcut-key">4</span>
+          <p class="card-label">Library</p>
+          <h2>Moxfield collection</h2>
+          <p>
+            Card inventory, binders, and collection flows live behind Moxfield's
+            collection tools.
+          </p>
+          <a href="https://moxfield.com/collection">Open collection</a>
+        </article>
+
+        <article class="shortcut-card">
+          <span class="shortcut-key">5</span>
+          <p class="card-label">Explore</p>
+          <h2>Public decks</h2>
+          <p>See what the field is brewing and compare lists for inspiration.</p>
+          <a href="https://moxfield.com/decks/public">Explore public decks</a>
+        </article>
+
+        <article class="shortcut-card">
+          <span class="shortcut-key">6</span>
+          <p class="card-label">Cards</p>
+          <h2>Card search</h2>
+          <p>Look up rules text, printings, legality, and deck candidates.</p>
+          <a href="https://moxfield.com/cards">Search cards</a>
+        </article>
+      </section>
+
+      <section class="quick-tools" aria-label="Quick tools">
+        <div>
+          <p class="eyebrow">Keyboard ready</p>
+          <h2>Press 1-6 to open a shortcut.</h2>
+        </div>
+        <button class="copy-button" type="button" data-copy="https://moxfield.com/users/maratiam">
+          Copy profile link
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
